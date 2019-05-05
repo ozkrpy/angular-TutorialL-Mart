@@ -7,13 +7,11 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  displayLogin = true;
 
-  displayLogin = true
-
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.displayLogin = !this.authService.isAuthenticated()
+    this.displayLogin = !this.authService.isAuthenticated();
   }
-
 }
