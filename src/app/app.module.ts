@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { InventoryModule } from './inventory/inventory.module';
+//import { InventoryModule } from './inventory/inventory.module';
 // import { ManagerModule } from './manager/manager.module';
 import { MaterialModule } from './material.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -21,11 +21,12 @@ import { UserModule } from './user/user.module';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
+    HttpClientModule,
     // ManagerModule, /* esto se debe comentar para que pueda funcionar el lazy-loading */
-    InventoryModule,
-    PosModule,
-    UserModule,
-    HttpClientModule
+    //InventoryModule,
+    //PosModule,
+    //UserModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
