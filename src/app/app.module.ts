@@ -12,6 +12,7 @@ import { MaterialModule } from './material.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PosModule } from './pos/pos.module';
 import { UserModule } from './user/user.module';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, PageNotFoundComponent],
@@ -28,7 +29,7 @@ import { UserModule } from './user/user.module';
     //UserModule,
     
   ],
-  providers: [],
+  providers: [ AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
