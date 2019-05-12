@@ -1,6 +1,6 @@
-export enum role {
-    None = 'none',
-    Clerk = 'clerk',
-    Cashier = 'cashier',
-    Manager = 'manager'
+export enum Role {
+  None = 'none',
+  Clerk = 'clerk',
+  Cashier = 'cashier',
+  Manager = 'manager'
 }

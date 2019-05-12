@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -10,6 +11,8 @@ const routes: Routes = [
   { path: 'user', loadChildren: './user/user.module#UserModule' },
   { path: 'pos', loadChildren: './pos/pos.module#PosModule' },
   { path: 'inventory', loadChildren: './inventory/inventory.module#InventoryModule' },
+  { path: 'login', component: LoginComponent },
+  { path: 'login/:redirectUrl', component: LoginComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
