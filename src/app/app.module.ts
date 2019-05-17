@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, PageNotFoundComponent, LoginComponent],
@@ -21,7 +22,8 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     // ManagerModule, /* esto se debe comentar para que pueda funcionar el lazy-loading */
     //InventoryModule,
     //PosModule,

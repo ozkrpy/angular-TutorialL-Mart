@@ -3,12 +3,15 @@ import {
   MatButtonModule,
   MatIconModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule
 } from '@angular/material';
 
 @NgModule({
   declarations: [],
-  imports: [MatButtonModule, MatToolbarModule, MatIconModule, MatTooltipModule],
-  exports: [MatButtonModule, MatToolbarModule, MatIconModule, MatTooltipModule]
+  imports: [MatButtonModule, MatToolbarModule, MatIconModule, MatTooltipModule, MatCardModule, MatFormFieldModule, MatInputModule],
+  exports: [MatButtonModule, MatToolbarModule, MatIconModule, MatTooltipModule, MatCardModule, MatFormFieldModule, MatInputModule]
 })
 export class MaterialModule {}

@@ -12,6 +12,6 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.displayLogin = !this.authService.isAuthenticated();
+    //this.displayLogin = !this.authService.isAuthenticated();
   }
 }
