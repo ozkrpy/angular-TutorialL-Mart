@@ -7,11 +7,17 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  displayLogin = true;
+  private _displayLogin = true;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    //this.displayLogin = !this.authService.isAuthenticated();
+    this.authService.authStatus.subscribe(
+      authStatus => (this._displayLogin = !authStatus.isAuthenticated)
+    );
+  }
+
+  getDisplayLogin() {
+    return this._displayLogin;
   }
 }

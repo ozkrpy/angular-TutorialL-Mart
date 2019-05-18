@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" fxLayoutGap="8px">
-  <button mat-icon-button><mat-icon>menu</mat-icon></button>
+  <button *ngIf="displayAccountIcons" mat-icon-button><mat-icon>menu</mat-icon></button>
   <!-- <mat-icon svgIcon="store-infrastructure"></mat-icon> -->
   <!-- <a mat-button routerLink="/home">
     <h1>LemonMart</h1>

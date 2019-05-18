@@ -13,9 +13,17 @@ import { MaterialModule } from './material.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SimpleDialogComponent } from './common/simple-dialog/simple-dialog.component';
+import { UiService } from './common/ui.service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, PageNotFoundComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+    LoginComponent,
+    SimpleDialogComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,7 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     //PosModule,
     //UserModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, UiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
