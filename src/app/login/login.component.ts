@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         authStatus => {
           if (authStatus.isAuthenticated) {
             this.uiService.showToast(`Bienvenido: ${authStatus.userRole}`);
-            this.router.navigate([this.redirectUrl || '/manager']);
+            //this.router.navigate([this.redirectUrl || '/manager']);
           }
         },
         error => (this.loginError = error)

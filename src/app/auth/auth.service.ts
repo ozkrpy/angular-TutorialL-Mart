@@ -16,6 +16,7 @@ import { environment } from '../../environments/environment';
 import { Role } from './role.enum';
 
 import { transformError } from '../common/common';
+import { CacheService } from './cache.service';
 export interface IAuthStatus {
   isAuthenticated: boolean;
   userRole: Role;
@@ -34,8 +35,10 @@ const defaultAuthStatus = {
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  authStatus = new BehaviorSubject<IAuthStatus>(defaultAuthStatus);
+export class AuthService extends CacheService {
+  authStatus = new BehaviorSubject<IAuthStatus>(
+    this.getItem('authStatus') || defaultAuthStatus
+  );
 
   private readonly authProvider: (
     email: string,
@@ -72,6 +75,8 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {
     // Fake login function to simulate roles
+    super();
+    this.authStatus.subscribe(authStatus => this.setItem('authStatus', authStatus));
     this.authProvider = this.fakeAuthProvider;
   }
 
@@ -79,6 +84,7 @@ export class AuthService {
     this.logout();
     const loginResponse = this.authProvider(email, password).pipe(
       map(value => {
+        this.setToken(value.accessToken);
         return decode(value.accessToken) as IAuthStatus;
       }),
       catchError(transformError)
@@ -96,6 +102,23 @@ export class AuthService {
   }
 
   logout() {
+    this.clearToken();
     this.authStatus.next(defaultAuthStatus);
+  }
+
+  private setToken(jwt: string) {
+    this.setItem('jwt', jwt);
+  }
+
+  private getDecodedToken(): IAuthStatus {
+    return decode(this.getItem('jwt'));
+  }
+
+  getToken(): string {
+    return this.getItem('jwt') || '';
+  }
+
+  private clearToken() {
+    this.removeItem('jwt');
   }
 }
